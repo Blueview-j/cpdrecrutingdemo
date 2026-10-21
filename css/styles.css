@@ -869,3 +869,14 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
 .faq-list details ul li::marker { color: var(--gold-dark); }
 .faq-list details p + ul { margin-top: -.4rem; }
 .faq-list details a { color: var(--navy-mid); font-weight: 600; }
+
+
+/* Header: official CPD logo with the patch to its right */
+.brand { gap: 14px; }
+.brand-logo { display: block; height: 62px; width: auto; }
+.site-header .brand-patch { width: auto; height: 62px; }
+@media (max-width: 760px) {
+  .brand-logo { height: 46px; }
+  .site-header .brand-patch { height: 48px; }
+  .brand { gap: 10px; }
+}
