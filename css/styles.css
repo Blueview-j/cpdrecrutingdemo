@@ -843,8 +843,8 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
   .brand-lockup { width: 142px; }
 }
 
-/* Menu button takes over below 1360px so the larger header logo has room */
-@media (max-width: 1359px) {
+/* Menu button takes over below 1440px so the larger header logo has room */
+@media (max-width: 1439px) {
   .nav-toggle { display: flex; }
   .header-apply { display: none; }
   .main-nav {
@@ -880,3 +880,79 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
   .site-header .brand-patch { height: 48px; }
   .brand { gap: 10px; }
 }
+
+/* ---------- Banner: fifth stat for lateral officers ---------- */
+@media (min-width: 761px) { .stats-grid { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 760px) {
+  .stat:nth-child(3) { border-bottom: 1px solid rgba(22,24,70,.18); border-right: 1px solid rgba(22,24,70,.18); }
+  .stat:nth-child(4) { border-right: 0; border-bottom: 1px solid rgba(22,24,70,.18); }
+  .stat:nth-child(5) { grid-column: 1 / -1; border-right: 0; }
+}
+
+/* ---------- Lateral officers section ---------- */
+.laterals { padding: 7rem 0; background: var(--off-white); }
+.laterals h2 { color: var(--navy); }
+.laterals h2 .accent { color: var(--maroon); }
+.laterals-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 4rem; align-items: start; }
+.laterals-intro .section-head { margin-bottom: 0; }
+.laterals-lead { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.3; color: var(--navy); text-transform: none; }
+.laterals-text p:not(.laterals-lead) { color: var(--muted); font-size: 1.08rem; }
+.laterals-perks { display: grid; grid-template-columns: 1.1fr 1fr 1fr 1fr; gap: 1.25rem; margin: 3.5rem 0; }
+.lateral-perk { background: var(--white); border: 1px solid #e3e4ec; border-top: 4px solid var(--gold); border-radius: var(--radius); padding: 1.6rem; }
+.lateral-perk h3 { color: var(--navy); font-size: 1.3rem; }
+.lateral-perk p { margin: 0; color: var(--muted); font-size: 1rem; }
+.lateral-perk-pay { background: var(--navy); border-color: var(--navy); border-top-color: var(--gold); color: var(--white); display: flex; flex-direction: column; justify-content: center; }
+.perk-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; color: rgba(255,255,255,.75); font-family: var(--font-display); }
+.perk-big { font-family: var(--font-display); font-weight: 700; font-size: 3.2rem; line-height: 1; color: var(--gold); margin: .35rem 0; text-transform: uppercase; }
+.perk-sub { font-weight: 600; font-size: 1.05rem; }
+.laterals-faces { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; }
+.laterals-faces .face { flex: none; width: auto; }
+.laterals-faces .ph { position: absolute; inset: 0; min-height: 0; }
+.laterals-cta { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 3rem; }
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn-navy:hover { background: var(--navy-mid); }
+@media (max-width: 1024px) {
+  .laterals-intro { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
+  .laterals-perks { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 760px) {
+  .laterals { padding: 4.5rem 0; }
+  .laterals-perks { grid-template-columns: minmax(0,1fr); }
+  .laterals-faces { grid-template-columns: repeat(2, minmax(0,1fr)); gap: .6rem; }
+  .laterals-cta .btn { width: 100%; }
+}
+
+/* Room for the Laterals menu item */
+@media (min-width: 1440px) {
+  .main-nav ul a { padding: .5rem .55rem; letter-spacing: .06em; }
+  .header-inner { gap: 1.1rem; }
+}
+.laterals-faces .face { color: var(--white); }
+@media (max-width: 760px) {
+  .laterals-faces .ph::after { display: none; }
+  .laterals-faces .ph::before { top: 32%; }
+  .laterals-faces .face figcaption { padding: 2rem .7rem .7rem; }
+  .laterals-faces .face figcaption strong { font-size: .95rem; }
+  .laterals-faces .face figcaption span { font-size: .68rem; }
+}
+
+/* Military section: Air Force portrait fades into the police portrait */
+.military-media > img.mil-fade { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.mil-after { animation: milFade 9s ease-in-out infinite; }
+@keyframes milFade { 0%, 30% { opacity: 0; } 45%, 85% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mil-after { animation: none; opacity: 1; } }
+
+/* Lateral portraits are pre-cropped with the face in the same spot */
+.laterals-faces .face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+
+/* Lateral portraits: five across on desktop */
+@media (min-width: 1025px) { .laterals-faces { grid-template-columns: repeat(5, minmax(0,1fr)); } }
+@media (min-width: 761px) and (max-width: 1024px) { .laterals-faces { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (min-width: 1025px) {
+  .laterals-faces .face figcaption { padding: 2.2rem .75rem .8rem; }
+  .laterals-faces .face figcaption strong { font-size: .95rem; line-height: 1.2; }
+  .laterals-faces .face figcaption span { font-size: .7rem; margin-top: .2rem; }
+}
+
+.laterals-oos { margin-top: 1.25rem; padding: .9rem 1.1rem; background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; color: var(--navy) !important; font-weight: 600; }
+.laterals-oos a { color: var(--maroon); }
