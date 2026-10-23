@@ -938,9 +938,10 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
 
 /* Military section: Air Force portrait fades into the police portrait */
 .military-media > img.mil-fade { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-.mil-after { animation: milFade 9s ease-in-out infinite; }
+.mil-after { opacity: 0; transition: opacity 4s ease-in-out 1.5s; }
+.military-media.in .mil-after { opacity: 1; }
 @keyframes milFade { 0%, 30% { opacity: 0; } 45%, 85% { opacity: 1; } 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .mil-after { animation: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .mil-after { transition: none; } }
 
 /* Lateral portraits are pre-cropped with the face in the same spot */
 .laterals-faces .face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
