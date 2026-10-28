@@ -957,3 +957,8 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
 
 .laterals-oos { margin-top: 1.25rem; padding: .9rem 1.1rem; background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; color: var(--navy) !important; font-weight: 600; }
 .laterals-oos a { color: var(--maroon); }
+
+/* "More Than a Job" photos: a second photo fades in on hover */
+.story-media > img.story-hover { opacity: 0; transition: opacity .6s ease; z-index: 1; }
+.story-media:hover > img.story-hover, .story-media:focus-within > img.story-hover { opacity: 1; }
+.story-media .play-btn { z-index: 2; }
