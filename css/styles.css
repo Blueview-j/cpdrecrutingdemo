@@ -962,3 +962,57 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
 .story-media > img.story-hover { opacity: 0; transition: opacity .6s ease; z-index: 1; }
 .story-media:hover > img.story-hover, .story-media:focus-within > img.story-hover { opacity: 1; }
 .story-media .play-btn { z-index: 2; }
+
+/* ---------- Text a Recruiter (button + QR) ---------- */
+.text-card {
+  display: flex; gap: 1.5rem; align-items: center; margin-top: 1.25rem;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1.5rem;
+}
+.text-qr {
+  width: 150px; height: 150px; flex: none; background: var(--white);
+  padding: 8px; border-radius: var(--radius); box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+.text-body h3 { font-size: 1.35rem; margin-bottom: .35rem; }
+.text-body p { margin: 0 0 1rem; color: rgba(255,255,255,.85); line-height: 1.5; }
+.text-btn { display: inline-flex; align-items: center; gap: .6rem; }
+.text-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.text-hint-mobile { display: none; }
+
+/* Phones and tablets: no QR (you can't scan your own screen), just the tap-to-text button */
+@media (hover: none) and (pointer: coarse), (max-width: 760px) {
+  .text-qr, .text-hint-desktop { display: none; }
+  .text-hint-mobile { display: block; }
+  .text-card { flex-direction: column; text-align: center; }
+  .text-btn { width: 100%; justify-content: center; }
+}
+
+/* ---------- Patrol Aide card (FAQ sidebar) ---------- */
+.faq-side { display: flex; flex-direction: column; gap: 2.5rem; }
+.aide-card {
+  background: var(--navy); color: var(--white); border-radius: var(--radius);
+  border-top: 6px solid var(--gold); padding: 2rem; box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.aide-card::after {
+  content: ""; position: absolute; right: -40px; bottom: -40px; width: 160px; height: 190px;
+  background: url("../assets/images/cpd-patch.png") center / contain no-repeat; opacity: .08; pointer-events: none;
+}
+.aide-tag {
+  display: inline-block; margin: 0 0 .9rem; padding: .3rem .75rem; border-radius: 999px;
+  background: var(--maroon); font-family: var(--font-display); font-size: .8rem;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.aide-card h3 { color: var(--white); font-size: 1.5rem; line-height: 1.2; margin-bottom: .75rem; }
+.aide-card p { color: rgba(255,255,255,.85); line-height: 1.55; position: relative; z-index: 1; }
+.aide-salary {
+  display: flex; flex-direction: column; margin: 1.25rem 0 1.5rem;
+  font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--gold) !important; line-height: 1;
+}
+.aide-salary span {
+  font-family: var(--font-body); font-size: .8rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: .35rem;
+}
+.aide-card .btn { position: relative; z-index: 1; }
+@media (max-width: 760px) { .aide-card { padding: 1.5rem; } }
+.faq-side .section-head { margin-bottom: 0; }
