@@ -979,8 +979,8 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
 .text-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
 .text-hint-mobile { display: none; }
 
-/* Phones and tablets: no QR (you can't scan your own screen), just the tap-to-text button */
-@media (hover: none) and (pointer: coarse), (max-width: 760px) {
+/* Phones: no QR (you can't scan your own screen), just the tap-to-text button. Tablets and computers show the QR. */
+@media (max-width: 760px) {
   .text-qr, .text-hint-desktop { display: none; }
   .text-hint-mobile { display: block; }
   .text-card { flex-direction: column; text-align: center; }
@@ -1016,3 +1016,6 @@ img.recruiter-photo { border-radius: 50%; object-fit: cover; }
 .aide-card .btn { position: relative; z-index: 1; }
 @media (max-width: 760px) { .aide-card { padding: 1.5rem; } }
 .faq-side .section-head { margin-bottom: 0; }
+
+.text-qr { display: block; }
+@media (max-width: 760px) { .text-qr { display: none; } }
